@@ -1,0 +1,81 @@
+/*primes*/ 
+#include<iostream> 
+using namespace std; 
+ 
+class graph 
+{ 
+ int G[20][20],n; 
+  
+ public: 
+  
+ void accept() 
+ { 
+   int i,j,e; 
+   int src,dest,cost; 
+   cout<<"\nEnter the no. of vertices: "; 
+   cin>>n; 
+    
+   for(i=0;i<n;i++) 
+   { 
+   for(j=0;j<n;j++) 
+   { 
+   G[i][j]=0; 
+   } 
+   } 
+    
+   cout<<"\nEnter the no. of  Edges: "; 
+   cin>>e; 
+   
+   
+   
+   for(i=0;i<e;i++) 
+   { 
+   cout<<"\nEnter Source: "; 
+    cin>>src; 
+   cout<<"\nDestination: "; 
+    cin>>dest; 
+   cout<<"\nCost: "; 
+   cin>>cost; 
+    
+   G[src][dest]=cost; 
+   G[dest][src]=cost; 
+   } 
+    
+    
+  } 
+   
+   
+   
+   
+   
+  void display() 
+  { 
+   int i,j; 
+   for(i=0;i<n;i++) 
+   { 
+    cout<<"\n"; 
+    for(j=0;j<n;j++) 
+    { 
+     cout<<"\t"<<G[i][j]; 
+    } 
+   } 
+  } 
+   
+   
+   
+  void prims() 
+  { 
+   int i,j,R[20][20]; 
+   int src,dest,cost,count,min; 
+   int total=0; 
+   int visited[20]; 
+    
+   for(i=0;i<n;i++) 
+   { 
+    for(j=0;j<n;j++) 
+    { 
+     if(G[i][j]==0) 
+     { 
+      R[i][j]=999; 
+     } 
+    else
