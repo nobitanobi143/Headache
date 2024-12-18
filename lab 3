@@ -40,7 +40,7 @@ void deleteCQ() {
  
  
  
-void displayCQ_forward() { 
+void displayCQ() { 
    int f = front, r = rear; 
    if (front == -1) { 
       cout<<"Queue is empty"<<endl; 
@@ -57,44 +57,12 @@ void displayCQ_forward() {
          cout<<cqueue[f]<<" "; 
          f++; 
       } 
-      f = 0; 
-      while (f <= r) { 
-         cout<<cqueue[f]<<" "; 
-         f++; 
-      } 
    } 
    cout<<endl; 
 } 
  
  
-void displayCQ_reverse() { 
-   int f = front, r = rear; 
-   if (front == -1) { 
-      cout<<"Queue is empty"<<endl; 
-      return; 
-   } 
-   cout<<"Queue elements are :\n"; 
-   if (f <= r) { 
-      while (f <= r){ 
-         cout<<cqueue[r]<<" "; 
-         r--; 
-      } 
-   } else { 
-     
-     
-      while (r>=0) { 
-         cout<<cqueue[r]<<" "; 
-         r--; 
-      } 
-      r=n-1; 
-      while (r>=f) { 
-         cout<<cqueue[r]<<" "; 
-         r--; 
-      } 
-   } 
-   cout<<endl; 
-} 
- 
+
  
  
  
@@ -104,9 +72,8 @@ int main() {
    int ch, val; 
    cout<<"1)Insert\n"; 
    cout<<"2)Delete\n"; 
-   cout<<"3)Display forward\n"; 
-   cout<<"4)Display reverse\n"; 
-   cout<<"5)Exit\n"; 
+   cout<<"3)Display\n"; 
+   cout<<"4)Exit\n"; 
    do { 
       cout<<"Enter choice : "<<endl; 
       cin>>ch; 
@@ -116,16 +83,16 @@ int main() {
          cin>>val; 
          insertCQ(val); 
          break; 
+
          case 2: 
          deleteCQ(); 
          break; 
+
          case 3: 
-         displayCQ_forward(); 
+         displayCQ(); 
          break; 
-  case 4: 
-         displayCQ_reverse(); 
-         break; 
-         case 5: 
+
+         case 4: 
          cout<<"Exit\n"; 
          break; 
          default: cout<<"Incorrect!\n"; 
@@ -133,49 +100,3 @@ int main() {
    } while(ch != 5); 
    return 0; 
 } 
-
-
-
-
-
-
-/* 
-Output: 
-1)Insert 
-2)Delete 
-3)Display forward 
-4)Display reverse 
-5)Exit 
-Enter choice :  
-1 
-Input for insertion:  
-10 
-Enter choice :  
-1 
-Input for insertion:  
-20 
-Enter choice :  
-1 
-Input for insertion:  
-30 
-Enter choice :  
-3 
-Queue elements are : 
-10 20 30  
-Enter choice :  
-4 
-Queue elements are : 
-30 20 10  
-Enter choice :  
-2 
-Element deleted from queue is : 10 
-Enter choice :  
-3 
-Queue elements are : 
-20 30  
-Enter choice :  
-4 
-Queue elements are : 
-30 20  
-Enter choice : 5 
-*/
